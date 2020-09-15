@@ -8,6 +8,7 @@ import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
+
 const app = express();
 
 const PORT = 4000;
@@ -19,6 +20,7 @@ const handleListening = () =>
 app.use(helmet()); // for Security (both of them are middlewear)
 app.set("view engine", "pug");
 app.use("/uploads", express.static("uploads"));
+app.use("/static", express.static("static"));
 app.use(cookieParser()); //for save cookies
 app.use(bodyParser.json()); // to get info from User
 app.use(bodyParser.urlencoded({ extended: true }));
